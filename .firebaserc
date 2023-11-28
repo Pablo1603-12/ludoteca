@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "ejercicio-csi2-2022": {
+      "hosting": {
+        "games-for-all": [
+          "gamesforall"
+        ]
+      }
+    },
+    "ludoteca-6aa2d": {
+      "hosting": {
+        "games-for-all": [
+          "ludoteca-6aa2d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ludoteca-6aa2d"
+  }
+}

@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h4 class="mb-4" [class.d-none]="nuevo">Ficha del Alquiler</h4>
+      <h4 class="mb-4" [class.d-none]="!nuevo">Nuevo Alquiler</h4>
+
+      <form #alquilerForm="ngForm" (ngSubmit)="saveAlquiler()">
+        <input type="text" class="d-none" [(ngModel)]="alquiler.id" name="id" />
+
+        <div class="mb-3">
+          <label for="fechaAlquiler" class="form-label">Fecha del alquiler</label>
+          <input
+            type="date"
+            class="form-control"
+            id="fechaAlquiler"
+            name="fechaAlquiler"
+            [(ngModel)]="alquiler.fechaAlquiler"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="fechaDevolucion" class="form-label">Devolución:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="fechaDevolucion"
+            name="fechaDevolucion"
+            [(ngModel)]="alquiler.fechaDevolucion"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Usuario</label>
+          <select
+            class="form-select"
+            id="usuario"
+            name="usuario"
+            [(ngModel)]="alquiler.idUsuario"
+          >
+            <option [value]="usuario.id" *ngFor="let usuario of usuarios">
+              {{ usuario.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="juego" class="form-label">Juego</label>
+          <select
+            class="form-select"
+            id="juego"
+            name="juego"
+            [(ngModel)]="alquiler.idJuego"
+          >
+            <option [value]="juego.id" *ngFor="let juego of juegos">
+              {{ juego.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="d-grid">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!alquilerForm.valid"
+          >
+            <i class="bi bi-plus"></i> Actualizar alquiler
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

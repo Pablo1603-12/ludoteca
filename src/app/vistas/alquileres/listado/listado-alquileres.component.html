@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <h3 class="mb-4">Listado de Alquileres</h3>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Juego</th>
+          <th scope="col">Fecha de Alquiler</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Fecha de Devolución</th>
+          <th scope="col">Alquilado</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alquiler of arrayAlquileres">
+          <td>{{ alquiler.juego?.nombre }}</td>
+          <td>{{ alquiler.alquiler?.fechaAlquiler }}</td>
+          <td>{{ alquiler.usuario?.nombre }}</td>
+          <td>{{ alquiler.alquiler?.fechaDevolucion }}</td>
+          <td>{{ alquiler.alquiler?.alquilado }}</td>
+          <td>
+            <a [routerLink]="'/alquileres/edit-alquiler/' + alquiler.alquiler?.id" class="btn btn-dark btn-sm me-2 rounded-3">Abrir Ficha</a>
+            <!-- Puedes agregar más botones de acciones si es necesario -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a routerLink="/alquileres/new-alquiler" class="btn btn-success rounded-3">Nuevo Alquiler</a>
+</div>
